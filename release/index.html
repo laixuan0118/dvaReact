@@ -1,0 +1,58 @@
+<!doctype html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"><meta content="telephone=no" name="format-detection"/><meta http-equiv="x-dns-prefetch-control" content="on"><title>Dva Demo</title><script>// 基准大小
+    const baseSize = 100;
+    // 设置 rem 函数
+    function setRem () {
+      // 当前页面宽度相对于 1024 宽的缩放比例，可根据自己需要修改。如果设计稿是750，那就改为750, 移动端设计稿基本为750
+      const scale = document.documentElement.clientWidth / 750;
+      console.log('xxxx', scale);
+      // 设置页面根节点字体大小
+      document.documentElement.style.fontSize = (baseSize * Math.min(scale, 2)) + 'px';
+    }
+    // 初始化
+    setRem();
+    // 改变窗口大小时重新设置 rem
+    window.onresize = function () {
+      setRem()
+    };
+// (function (window, html) {
+//   // 默认的设计稿宽度720px
+//   const designWidth = 750;
+
+//   function recalc() {
+//     const windowWidth = html.clientWidth < designWidth ? html.clientWidth : designWidth;
+//     console.log('windowWidth', windowWidth)
+//     // if (html.clientWidth > designWidth) {
+//     //   (document.querySelector('#root')).style = `width: ${designWidth}px; margin: auto;`;
+//     // } else {
+//     //   (document.querySelector('#root')).style.width = '100%';
+//     // }
+
+//     // *100 之后，则样式中rem的值就需要相应的缩小100倍
+//     // 即：设计稿中的20px，在样式中就要写成0.2rem
+//     const fontSize = windowWidth / designWidth * 100;
+//     console.log('font', fontSize);
+//     setFontSize(fontSize);
+
+//     const completedFontSize = getFontSize();
+
+//     // 如果实际 fontSize 与设置的 fontSize 不等，则根据比例，重新计算
+//     // 存在浏览器自动放大font-size的问题
+//     // 参考：https://www.cnblogs.com/keaizhouzhou/p/6702551.html
+//     if (Math.abs(completedFontSize - fontSize) > 0.1) {
+//       setFontSize(fontSize * fontSize / completedFontSize);
+//     }
+//   }
+
+//   function setFontSize(fontSize) {
+//     console.log(555, fontSize)
+//     html.style.fontSize = `${fontSize}px`;
+//   }
+
+//   function getFontSize() {
+//     return parseFloat(window.getComputedStyle(html)['font-size']);
+//   }
+
+//   // 监听resize
+//   window.addEventListener('resize', recalc);
+//   recalc();
+// }(window, document.documentElement));</script></head><body><div id="root"></div><script defer="defer" src="main.entry.js"></script></body></html>
