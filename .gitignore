@@ -1,0 +1,17 @@
+.idea/
+.cache
+.history
+.git
+.vscode
+*.bak
+*.log
+*.temp
+*.zip
+
+node_modules
+logs
+.DS_Store
+*/release
+*/dist
+*/typings
+server/run
