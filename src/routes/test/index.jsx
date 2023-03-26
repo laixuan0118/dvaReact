@@ -3,7 +3,7 @@ import React from 'react';
 const Example = () => {
   return (
     <div>
-      test1
+      test1222
       <image src='../../assets/douyin.png' />
     </div>
   );
